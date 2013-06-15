@@ -1,0 +1,19 @@
+{
+  "name": "gengo",
+  "version": "0.0.0",
+  "description": "gengo challenges",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wynnej1983/gengo_challenges"
+  },
+  "keywords": [
+    "gengo",
+    "tokyo",
+    "japan"
+  ],
+  "author": "Jonathan Wynne",
+  "license": "BSD"
+}
