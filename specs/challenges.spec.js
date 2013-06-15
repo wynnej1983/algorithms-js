@@ -118,7 +118,7 @@
         };
       }
 
-      it('returns valid response', function (done) {
+      it.skip('returns valid response', function (done) {
         var data = getData();
         challenges.gengoPostTranslationJobs(data, function (res) {
           expect(res).to.include.keys('opstat');
