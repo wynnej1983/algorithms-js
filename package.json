@@ -1,13 +1,13 @@
 {
-  "name": "gengo",
+  "name": "gengo programming challenges",
   "version": "0.0.0",
-  "description": "gengo challenges",
+  "description": "programming challenges gengo",
   "scripts": {
     "test": "make test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wynnej1983/gengo_challenges"
+    "url": "https://github.com/wynnej1983/programming-challenges-gengo"
   },
   "keywords": [
     "gengo",
