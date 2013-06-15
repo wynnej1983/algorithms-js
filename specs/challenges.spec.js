@@ -38,14 +38,14 @@
       '53263': { 4: '5326' }
     };
     Object
-      .keys(cases)
-      .forEach(function (i) {
-        var len = parseInt(Object.keys(cases[i])[0], 10)
-          , substr = cases[i][len];
-        it(i + ' prints longest contiguous substring ' + substr.substring(0, substr.length / 2) + '|' + substr.substring(substr.length / 2, substr.length) + ' of length ' + len, function () {
-          expect(challenges.getEqualSumSubstring(i)).to.eql(len);
-        });
+    .keys(cases)
+    .forEach(function (i) {
+      var len = parseInt(Object.keys(cases[i])[0], 10)
+        , substr = cases[i][len];
+      it(i + ' prints longest contiguous substring ' + substr.substring(0, substr.length / 2) + '|' + substr.substring(substr.length / 2, substr.length) + ' of length ' + len, function () {
+        expect(challenges.getEqualSumSubstring(i)).to.eql(len);
       });
+    });
 
   });
 
@@ -80,14 +80,14 @@
       'abracadabra': { 3: 'aca' }
     };
     Object
-      .keys(cases)
-      .forEach(function (i) {
-        var len = parseInt(Object.keys(cases[i])[0], 10)
-          , maxPalindrome = cases[i][len];
-        it(i + ' prints longest palindrome ' + maxPalindrome + ' of length ' + len, function () {
-          expect(challenges.getLongestPalindrome(i)).to.eql(maxPalindrome);
-        });
+    .keys(cases)
+    .forEach(function (i) {
+      var len = parseInt(Object.keys(cases[i])[0], 10)
+        , maxPalindrome = cases[i][len];
+      it(i + ' prints longest palindrome ' + maxPalindrome + ' of length ' + len, function () {
+        expect(challenges.getLongestPalindrome(i)).to.eql(maxPalindrome);
       });
+    });
 
   });
 
@@ -95,10 +95,41 @@
 
     describe('POST /translate/jobs', function () {
 
-      it('returns 200 OK');
+      function getData() {
+        return {
+          'jobs': {
+            'job_1': {
+              'type': 'text',
+              'slug': 'Single :: English to Japanese',
+              'body_src': 'did i pass the test?',
+              'lc_src': 'en',
+              'lc_tgt': 'ja',
+              'tier': 'standard'
+            },
+            'job_2': {
+              'type': 'text',
+              'slug': 'Single :: English to Japanese',
+              'body_src': 'did i pass the test yet?',
+              'lc_src': 'en',
+              'lc_tgt': 'ja',
+              'tier': 'standard'
+            }
+          }
+        };
+      }
+
+      it('returns valid response', function (done) {
+        var data = getData();
+        challenges.gengoPostTranslationJobs(data, function (res) {
+          expect(res).to.include.keys('opstat');
+          expect(res.opstat).to.eql('ok');
+          done();
+        });
+      });
 
     });
 
   });
+
 
 }());

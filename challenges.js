@@ -1,6 +1,8 @@
-/*global module: true, console: true*/
+/*global module: true, require:true, console: true*/
 module.exports = (function () {
   'use strict';
+
+  var gengo = require('gengo-node');
 
   function getEqualSumSubstring(s) {
     s = s || '';
@@ -88,17 +90,35 @@ module.exports = (function () {
       onesCount += n.toString().split('').reduce(function (i, j) {
             return parseInt(j, 10) === 1 ? i + 1 : i;
           }, 0);
-console.log('n='+n+' f(n)='+onesCount);
+      console.log('n=' + n + ' f(n)=' + onesCount);
       if (onesCount === n) {
         return n;
       }
     }
   }
 
+  function gengoPostTranslationJobs(data, cb) {
+    var creds = {
+      publicKey: ')dDWI-{4K-UV16|^f}bYJwTSrGKLZNc4X[en25]Eyqd$ZHZLyC^^spg|YS5J|Y^d',
+      privateKey: 'aE=5GK9FFK@^Z4~LN[Z^IAMduH6s1jr5xUoMi[lMciv6iMELp2yGBy$SJjFmmQ1h'
+    };
+
+    var gengoClient = new gengo.Gengo({
+      'public': creds.publicKey,
+      'private': creds.privateKey
+    });
+
+    gengoClient.postJobs(data, function (res) {
+      console.log(res);
+      cb(res);
+    });
+  }
+
   return {
     getEqualSumSubstring: getEqualSumSubstring,
     getLongestPalindrome: getLongestPalindrome,
-    getNextNWhereOnesCountInRangeOneToNEqualsN: getNextNWhereOnesCountInRangeOneToNEqualsN
+    getNextNWhereOnesCountInRangeOneToNEqualsN: getNextNWhereOnesCountInRangeOneToNEqualsN,
+    gengoPostTranslationJobs: gengoPostTranslationJobs
   };
 
 }());
