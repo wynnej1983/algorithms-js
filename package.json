@@ -1,9 +1,16 @@
 {
-  "name": "gengo programming challenges",
+  "name": "gengo-programming-challenges",
   "version": "0.0.0",
   "description": "programming challenges gengo",
   "scripts": {
     "test": "make test"
+  },
+  "dependencies": {
+    "gengo-node": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*"
   },
   "repository": {
     "type": "git",
