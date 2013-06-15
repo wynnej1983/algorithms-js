@@ -85,11 +85,6 @@ module.exports = (function () {
       , onesCount = 1;
 
     for (;;++n) {
-      //var onesCount = numArray.reduce(function (i, j) {
-      //  return i + j.toString().split('').reduce(function (_i, _j) {
-      //      return parseInt(_j, 10) === 1 ? _i + 1 : _i;
-      //    }, 0);
-      //}, 0);
       onesCount += n.toString().split('').reduce(function (i, j) {
             return parseInt(j, 10) === 1 ? i + 1 : i;
           }, 0);
