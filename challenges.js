@@ -90,8 +90,9 @@ module.exports = (function () {
       onesCount += n.toString().split('').reduce(function (i, j) {
             return parseInt(j, 10) === 1 ? i + 1 : i;
           }, 0);
-      console.log('n=' + n + ' f(n)=' + onesCount);
+      
       if (onesCount === n) {
+        console.log('n=' + n + ' f(n)=' + onesCount);
         return n;
       }
     }
