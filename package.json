@@ -1,7 +1,7 @@
 {
   "name": "gengo-programming-challenges",
-  "version": "0.0.0",
-  "author"; "Jonathan Wynne <wynnej1983@gmail.com>",
+  "version": "0.1.0",
+  "author": "Jonathan Wynne <wynnej1983@gmail.com>",
   "description": "programming challenges gengo",
   "contributors": [
     {
@@ -27,7 +27,6 @@
     "tokyo",
     "japan"
   ],
-  "author": "Jonathan Wynne",
   "license": "BSD",
   "engines": {
     "node": ">=0.6"
