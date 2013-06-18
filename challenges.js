@@ -21,7 +21,7 @@ module.exports = (function () {
         throw new Error('Input string must be at least 2 chars long');
       }
     } catch (e) {
-      console.log('Error: ' + e.message + '. Input string is invalid');
+      console.log('Error: Input string is invalid\n' + e.message);
       return 0;
     }
 

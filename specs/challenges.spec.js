@@ -6,24 +6,29 @@
     , challenges = require('../challenges');
 
   describe('#getEqualSumSubstring() \n`Print length of longest contiguous substring of s, such that length of substring is 2*N digits and sum of the leftmost N digits equals the sum of the rightmost N digits, otherwise print 0`', function () {
-    it('prints 0 when empty string', function () {
-      expect(challenges.getEqualSumSubstring('')).to.eql(0);
+    describe('when null or undefined', function () {
+      it('should print 0', function () {
+        expect(challenges.getEqualSumSubstring(null)).to.eql(0);
+        expect(challenges.getEqualSumSubstring()).to.eql(0);
+      });
     });
 
-    it('prints 0 when input is null or undefined', function () {
-      try {
-        challenges.getEqualSumSubstring(null);
-      } catch (e) {
-        expect(e).not.to.be.null;
-      }
+    describe('when empty', function () {
+      it('should print 0', function () {
+        expect(challenges.getEqualSumSubstring('')).to.eql(0);
+      });
     });
 
-    it('prints 0 when input has zero in string', function () {
-      try {
-        challenges.getEqualSumSubstring('0');
-      } catch (e) {
-        expect(e).not.to.be.null;
-      }
+    describe('when contains 0', function () {
+      it('should print 0', function () {
+        expect(challenges.getEqualSumSubstring('0')).to.eql(0);
+      });
+    });
+
+    describe('when no matches found', function () {
+      it('should print 0', function () {
+        expect(challenges.getEqualSumSubstring('12345')).to.eql(0);
+      });
     });
 
     var cases = {
@@ -38,37 +43,46 @@
       '53263': { 4: '5326' }
     };
     Object
-    .keys(cases)
-    .forEach(function (i) {
-      var len = parseInt(Object.keys(cases[i])[0], 10)
-        , substr = cases[i][len];
-      it(i + ' prints longest contiguous substring ' + substr.substring(0, substr.length / 2) + '|' + substr.substring(substr.length / 2, substr.length) + ' of length ' + len, function () {
-        expect(challenges.getEqualSumSubstring(i)).to.eql(len);
-      });
-    });
+      .keys(cases)
+      .forEach(function (i) {
+        var len = parseInt(Object.keys(cases[i])[0], 10)
+          , substr = cases[i][len];
 
+        describe('when ' + '"' + i + '"', function () {
+          it('should print len = ' + len + ' "' + substr.substring(0, substr.length / 2) + '|' + substr.substring(substr.length / 2, substr.length) + '"', function () {
+            expect(challenges.getEqualSumSubstring(i)).to.eql(len);
+          });
+        });
+
+      });
   });
 
-  describe('#getNextNWhereOnesCountInRangeOneToNEqualsN() \n`Given a function f which takes a positive integer n which returns the number of 1s in the decimal representation of all the integers from 2 to n, inclusive, find the next value of n where f(n) = n`', function () {
+  describe('#getNextNWhereOnesCountInRangeOneToNEqualsN()\n`Given a function f which takes a positive integer n which returns the number of 1s in the decimal representation of all the integers from 2 to n, inclusive, find the next value of n where f(n) = n`', function () {
 
-    it('prints 199981 for next largest value of N', function () {
+    it('should print 199981 for next largest value of N', function () {
       expect(challenges.getNextNWhereOnesCountInRangeOneToNEqualsN()).to.eql(199981);
     });
 
   });
 
-  describe('#getLongestPalindrome() \n`Prints the longest palindrome in a string`', function () {
+  describe('#getLongestPalindrome()\n`Prints the longest palindrome in a string`', function () {
 
-    it('prints empty string when input is empty string', function () {
-      expect(challenges.getLongestPalindrome('')).to.eql('');
+    describe('when empty', function () {
+      it('should print empty string', function () {
+        expect(challenges.getLongestPalindrome('')).to.eql('');
+      });
     });
 
-    it('prints empty string when input is less then 2 chars long', function () {
-      expect(challenges.getLongestPalindrome('a')).to.eql('');
+    describe('when less than 2 chars long', function () {
+      it('should print empty string', function () {
+        expect(challenges.getLongestPalindrome('a')).to.eql('');
+      });
     });
 
-    it('prints empty string when input contains no palindromes', function () {
-      expect(challenges.getLongestPalindrome('abc')).to.eql('');
+    describe('when no matches found', function () {
+      it('should print empty string', function () {
+        expect(challenges.getLongestPalindrome('abc')).to.eql('');
+      });
     });
 
     var cases = {
@@ -80,15 +94,18 @@
       'abracadabra': { 3: 'aca' }
     };
     Object
-    .keys(cases)
-    .forEach(function (i) {
-      var len = parseInt(Object.keys(cases[i])[0], 10)
-        , maxPalindrome = cases[i][len];
-      it(i + ' prints longest palindrome ' + maxPalindrome + ' of length ' + len, function () {
-        expect(challenges.getLongestPalindrome(i)).to.eql(maxPalindrome);
-      });
-    });
+      .keys(cases)
+      .forEach(function (i) {
+        var len = parseInt(Object.keys(cases[i])[0], 10)
+          , maxPalindrome = cases[i][len];
 
+        describe('when ' + i, function () {
+          it('should print ' + '"' + maxPalindrome + '"' + ' len = ' + len, function () {
+            expect(challenges.getLongestPalindrome(i)).to.eql(maxPalindrome);
+          });
+        });
+
+      });
   });
 
   describe('GengoAPI', function () {
