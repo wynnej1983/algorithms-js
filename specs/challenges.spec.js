@@ -135,7 +135,7 @@
         };
       }
 
-      it.skip('returns valid response', function (done) {
+      it.skip('should return valid response', function (done) {
         var data = getData();
         challenges.gengoPostTranslationJobs(data, function (res) {
           expect(res).to.include.keys('opstat');
@@ -147,6 +147,5 @@
     });
 
   });
-
 
 }());
