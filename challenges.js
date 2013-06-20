@@ -6,9 +6,9 @@ module.exports = (function () {
 
   function getEqualSumSubstring(s) {
     s = s || '';
-    var substr
-      , len = s.length
+    var len = s.length
       , maxLen = 0
+      , substr
       , left
       , right;
 
@@ -21,7 +21,7 @@ module.exports = (function () {
         throw new Error('Input string must be at least 2 chars long');
       }
     } catch (e) {
-      console.log('Error: Input string is invalid\n' + e.message);
+      self.log('Error: Input string is invalid\n' + e.message);
       return 0;
     }
 
@@ -92,7 +92,7 @@ module.exports = (function () {
           }, 0);
       
       if (onesCount === n) {
-        console.log('n=' + n + ' f(n)=' + onesCount);
+        self.log('n=' + n + ' f(n)=' + onesCount);
         return n;
       }
     }
@@ -110,16 +110,18 @@ module.exports = (function () {
     });
 
     gengoClient.postJobs(data, function (res) {
-      console.log(res);
+      self.log(res);
       cb(res);
     });
   }
 
-  return {
+  var self = {
     getEqualSumSubstring: getEqualSumSubstring,
     getLongestPalindrome: getLongestPalindrome,
     getNextNWhereOnesCountInRangeOneToNEqualsN: getNextNWhereOnesCountInRangeOneToNEqualsN,
-    gengoPostTranslationJobs: gengoPostTranslationJobs
+    gengoPostTranslationJobs: gengoPostTranslationJobs,
+    log: console.log
   };
 
+  return self;
 }());

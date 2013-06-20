@@ -5,11 +5,20 @@
   var expect = require('chai').expect
     , challenges = require('../challenges');
 
-  describe('#getEqualSumSubstring() \n`Print length of longest contiguous substring of s, such that length of substring is 2*N digits and sum of the leftmost N digits equals the sum of the rightmost N digits, otherwise print 0`', function () {
-    describe('when null or undefined', function () {
+  //turn off console.log for testing
+  challenges.log = function () {};
+
+  describe('#getEqualSumSubstring()', function () {
+
+    describe('when undefined', function () {
+      it('should print 0', function () {
+        expect(challenges.getEqualSumSubstring()).to.eql(0);
+      });
+    });
+
+    describe('when null', function () {
       it('should print 0', function () {
         expect(challenges.getEqualSumSubstring(null)).to.eql(0);
-        expect(challenges.getEqualSumSubstring()).to.eql(0);
       });
     });
 
@@ -57,7 +66,7 @@
       });
   });
 
-  describe('#getNextNWhereOnesCountInRangeOneToNEqualsN()\n`Given a function f which takes a positive integer n which returns the number of 1s in the decimal representation of all the integers from 2 to n, inclusive, find the next value of n where f(n) = n`', function () {
+  describe('#getNextNWhereOnesCountInRangeOneToNEqualsN()', function () {
 
     it('should print 199981 for next largest value of N', function () {
       expect(challenges.getNextNWhereOnesCountInRangeOneToNEqualsN()).to.eql(199981);
@@ -65,7 +74,7 @@
 
   });
 
-  describe('#getLongestPalindrome()\n`Prints the longest palindrome in a string`', function () {
+  describe('#getLongestPalindrome()', function () {
 
     describe('when empty', function () {
       it('should print empty string', function () {
