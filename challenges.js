@@ -1,8 +1,10 @@
 /*global module: true, require:true, console: true*/
+
 module.exports = (function () {
   'use strict';
 
-  var gengo = require('gengo-node');
+  var gengo = require('gengo-node')
+    , self;
 
   function getEqualSumSubstring(s) {
     s = s || '';
@@ -90,7 +92,7 @@ module.exports = (function () {
       onesCount += n.toString().split('').reduce(function (i, j) {
             return parseInt(j, 10) === 1 ? i + 1 : i;
           }, 0);
-      
+
       if (onesCount === n) {
         self.log('n=' + n + ' f(n)=' + onesCount);
         return n;
@@ -115,7 +117,7 @@ module.exports = (function () {
     });
   }
 
-  var self = {
+  self = {
     getEqualSumSubstring: getEqualSumSubstring,
     getLongestPalindrome: getLongestPalindrome,
     getNextNWhereOnesCountInRangeOneToNEqualsN: getNextNWhereOnesCountInRangeOneToNEqualsN,
