@@ -17,7 +17,7 @@
   "devDependencies": {
     "mocha": "*",
     "chai": "*",
-    "coffee-script: "*"
+    "coffee-script": "*"
   },
   "repository": {
     "type": "git",
