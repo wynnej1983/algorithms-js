@@ -1,4 +1,4 @@
-#*global require: true, describe: true, it: true
+#global require: true, describe: true, it: true
 do ->
   'use strict'
 
@@ -8,7 +8,7 @@ do ->
   #turn off console.log for testing
   challenges.log = ->
 
-  describe 'getEqualSumSubstring()', ->
+  describe '#getEqualSumSubstring()', ->
     describe 'when undefined', ->
       it 'should print 0', ->
         expect(challenges.getEqualSumSubstring()).to.eql 0
@@ -24,7 +24,6 @@ do ->
     describe 'when no matches found', ->
       it 'should print 0', ->
         expect(challenges.getEqualSumSubstring '12345').to.eql 0
-
     describe 'when all matches found', ->
       cases = require './testCases1'
       for k,v of cases
@@ -51,7 +50,6 @@ do ->
     describe 'when no matches found', ->
       it 'should print empty string', ->
         expect(challenges.getLongestPalindrome 'abc').to.eql ''
-
     describe 'when all matches found', ->
       cases = require './testCases2'
       for k,v of cases
@@ -64,26 +62,8 @@ do ->
 
   describe 'GengoAPI', ->
     describe 'POST /translate/jobs', ->
-
-      getData = ->
-          'jobs':
-            'job_1':
-              'type': 'text'
-              'slug': 'Single :: English to Japanese'
-              'body_src': 'did i pass the test?'
-              'lc_src': 'en'
-              'lc_tgt': 'ja'
-              'tier': 'standard'
-            'job_2':
-              'type': 'text'
-              'slug': 'Single :: English to Japanese'
-              'body_src': 'did i pass the test yet?'
-              'lc_src': 'en'
-              'lc_tgt': 'ja'
-              'tier': 'standard'
-
+      data = require './testCases3'
       it.skip 'should return valid response', (done) ->
-        data = getData()
         challenges.gengoPostTranslationJobs data, (res) ->
           expect(res).to.include.keys 'opstat'
           expect(res.opstat).to.eql 'ok'
