@@ -2,7 +2,7 @@
 
 # Gengo programming challenges
 
-## Jonathan Wynne
+## Jonathan James Wynne
 
 ## Install dependencies and run tests
     
