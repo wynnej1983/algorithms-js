@@ -14,18 +14,23 @@ do ->
     context 'when undefined', ->
       it 'should print 0', ->
         expect(challenges.getEqualSumSubstring()).to.eql 0
+        
     context 'when null', ->
       it 'should print 0', ->
         expect(challenges.getEqualSumSubstring null ).to.eql 0
+        
     context 'when empty', ->
       it 'should print 0', ->
         expect(challenges.getEqualSumSubstring '').to.eql 0
+        
     context 'when contains 0', ->
       it 'should print 0', ->
         expect(challenges.getEqualSumSubstring '0').to.eql 0
+        
     context 'when no matches found', ->
       it 'should print 0', ->
         expect(challenges.getEqualSumSubstring '12345').to.eql 0
+        
     context 'when all matches found', ->
       cases = require './testCases1'
       for k,v of cases
@@ -46,12 +51,15 @@ do ->
     context 'when empty', ->
       it 'should print empty string', ->
         expect(challenges.getLongestPalindrome '').to.eql ''
+        
     context 'when less than 2 chars long', ->
       it 'should print empty string', ->
         expect(challenges.getLongestPalindrome 'a').to.eql ''
+        
     context 'when no matches found', ->
       it 'should print empty string', ->
         expect(challenges.getLongestPalindrome 'abc').to.eql ''
+        
     context 'when all matches found', ->
       cases = require './testCases2'
       for k,v of cases
